@@ -128,7 +128,7 @@ def process_folders(ground_truth_folder, ocr_result_folder):
     
     return all_metrics, files_processed, errors
 
-def save_results_to_csv(metrics, output_file):
+def save_results_to_csv(metrics, output_file) -> None:
     """Save detailed results to CSV file."""
     import csv
     
@@ -152,7 +152,7 @@ def save_results_to_csv(metrics, output_file):
             else:
                 writer.writerow([metric_name, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'])
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description='Evaluate OCR results against ground truth')
     parser.add_argument('--ground-truth', required=True, help='Path to ground truth folder')
     parser.add_argument('--ocr-result', required=True, help='Path to OCR result folder')
@@ -164,6 +164,9 @@ def main():
     
     # Process the folders
     metrics, files_processed, errors = process_folders(args.ground_truth, args.ocr_result)
+
+    if errors:
+        print(f"\n Following errors: {errors}")
     
     # Save results to CSV if files were processed
     if files_processed > 0:
