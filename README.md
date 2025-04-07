@@ -58,7 +58,7 @@ ocr_result/
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/SaimonDahal-02/ocr-evaluation.git
+   git clone https://github.com/SaimonDahal-02/OcrEvaluationScript.git
    cd ocr-evaluation
    ```
 
